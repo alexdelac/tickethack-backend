@@ -20,6 +20,14 @@ router.post('/',(req, res) => {
 
 })
 
+router.get('/',(req, res) => {
+    Cart.find()
+    .populate('trip')
+    .then((data) => {
+        res.json({cart: data})
+    })
+})
+
 
 
 
