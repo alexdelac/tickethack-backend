@@ -28,6 +28,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bookings', bookingRouter)
 app.use('/carts', cartRouter)
-app.use('trips', tripRouter)
+app.use('/trips', tripRouter)
 
 module.exports = app;
