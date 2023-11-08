@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 // ajouter Schema 
 const bookingSchema  = mongoose.Schema ({
-    trip: {type: mongoose.Schema.Types.ObjectId, ref: 'trips'},
+    book: {type: mongoose.Schema.Types.ObjectId, ref: 'trips'},
 });
 
 const Booking = mongoose.model('bookings', bookingSchema);

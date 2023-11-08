@@ -3,6 +3,7 @@ var router = express.Router();
 
 // ajout require vers le model necessaire
 const Cart = require('../models/carts');
+const Booking = require('../models/bookings')
 
 const fetch = require('node-fetch');
 
@@ -30,6 +31,20 @@ router.get('/',(req, res) => {
 
 router.delete('/:id', (req, res)=>{
     Cart.deleteOne({_id: req.params.id}).then(()=>{
+        res.json({result: true})
+    })
+})
+
+router.get('/purchase', (req, res)=>{
+    Cart.find().then(data=>{
+        for (let i =0; i<data.length; i++){
+            const newBook = new Booking({
+                book: data[i].trip
+            })
+            newBook.save()
+        }
+    })
+    Cart.deleteMany().then(data=>{
         res.json({result: true})
     })
 })

@@ -9,7 +9,7 @@ const fetch = require('node-fetch');
 //ajout des routes
 router.get('/', (req, res)=>{
     Booking.find()
-        .populate('trip')
+        .populate('book')
         .then(data=>{
         res.json({trips: data})
     })
