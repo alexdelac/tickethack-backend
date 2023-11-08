@@ -12,7 +12,7 @@ const fetch = require('node-fetch');
 
 router.post('/',(req, res) => {
     const newCart = new Cart({
-        trips: req.body.id
+        trip: req.body.id
     })
     newCart.save().then((data) => {
         res.json({result: true});
